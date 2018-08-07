@@ -1,0 +1,11 @@
+# Config file for pathogen
+# ========================
+# These repositories simply need to (somehow) be git-cloned in $HOME/.vim/bundle,
+# this can be done easily with the script plug.sh in the same folder.
+
+
+
+https://github.com/morhetz/gruvbox
+https://github.com/tpope/vim-airline
+https://github.com/tpope/vim-surround
+https://github.com/terryma/vim-multiple-cursors
