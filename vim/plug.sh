@@ -26,8 +26,7 @@ echo "Done updating! Cleaning up if necessary."
 cd $HOME/.vim/bundle
 
 for line in $(ls); do
-    # use a simmilar awk program to strip the comments,
-    # and search for the folder in it.
+    # grep the config file for the folder
     if ! grep -q "/$line" <<< $clean_cfg;
     then
         # if the folder is *not* in the config, we remove it.
