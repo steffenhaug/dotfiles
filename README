@@ -3,4 +3,7 @@ Dotfiles
 By Steffen Haug
 
 This repository contains configuration files for tools that support
-configuration in plain text, such as vim and zsh.
+configuration in plain text, such as vim and zsh. It also contains
+other tools and configurations that i want to synchornize actoss my
+different systems, such as LaTeX tools (templates, bibliographies)
+and scripts.
