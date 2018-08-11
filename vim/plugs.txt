@@ -4,9 +4,15 @@
 #   $HOME/.vim/bundle
 # this can be done easily with the script plug.sh in the same folder.
 
+# Tim Pope stuff
 tpope/vim-airline
 tpope/vim-surround
 tpope/vim-commentary
 
+# Language-agnostic
 morhetz/gruvbox
 terryma/vim-multiple-cursors
+scrooloose/syntastic
+
+# OCaml
+def-lkb/ocp-indent-vim
