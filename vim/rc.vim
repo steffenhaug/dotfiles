@@ -21,7 +21,6 @@
 "    in which case it is sourced from plugins.vim
 
 
-
 " General settings
 " ----------------
 
@@ -112,6 +111,7 @@ set expandtab		" convert inserted tabs to spaces
 set ruler
 set number
 set relativenumber
+set wildmenu
 
 set showcmd
 
@@ -124,6 +124,7 @@ set t_Co=256
 set hlsearch
 
 "scheme
+set background=dark
 colorscheme gruvbox
 
 " Gui Vim
