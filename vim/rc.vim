@@ -118,6 +118,7 @@ set showcmd
 " pretty colors
 syntax on
 set termguicolors
+
 set t_Co=256
 
 " highlight search results
@@ -200,4 +201,3 @@ endfor
 if count(s:opam_available_tools,"ocp-indent") == 0
   source "$HOME/.opam/system/share/ocp-indent/vim/indent/ocaml.vim"
 endif
-" ## end of OPAM user-setup addition for vim / ocp-indent ## keep this line
