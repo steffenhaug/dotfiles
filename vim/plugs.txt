@@ -9,10 +9,18 @@ tpope/vim-airline
 tpope/vim-surround
 tpope/vim-commentary
 
+junegunn/fzf.vim
+airblade/vim-rooter
+justinmk/vim-sneak
+machakann/vim-highlightedyank
+
 # Language-agnostic
 morhetz/gruvbox
 terryma/vim-multiple-cursors
-scrooloose/syntastic
+# scrooloose/syntastic
 
-# OCaml
+# OCaml specific
 def-lkb/ocp-indent-vim
+
+# Rust specific
+rust-lang/rust.vim
