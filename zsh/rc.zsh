@@ -9,3 +9,5 @@ setopt appendhistory autocd extendedglob nomatch
 unsetopt beep notify
 bindkey -v
 # End of lines configured by zsh-newuser-install
+
+alias v=nvim

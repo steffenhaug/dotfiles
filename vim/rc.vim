@@ -39,9 +39,14 @@ set autoindent
 set nobackup
 set nowb
 set noswapfile
+set hidden
+set nowrap
+set nojoinspaces
+
+set splitright
+set splitbelow
 
 let mapleader = ","
-let maplocalleader = ";"
 
 " the unnamed register is the one pasting and yanking def. to.
 " so it makes sense to use the clipboard for this
@@ -77,8 +82,35 @@ inoremap <MiddleMouse> <Nop>
 
 
 " Plugins
-" -------
-execute pathogen#infect()
+" =======
+call plug#begin('~/.vim/plugged')
+
+Plug 'airblade/vim-rooter'
+Plug 'justinmk/vim-sneak'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+
+Plug 'ncm2/ncm2'
+Plug 'roxma/nvim-yarp'
+
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
+Plug 'terryma/vim-multiple-cursors'
+
+Plug 'tpope/vim-airline'
+Plug 'morhetz/gruvbox'
+Plug 'machakann/vim-highlightedyank'
+
+Plug 'w0rp/ale'
+
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
+
+Plug 'rust-lang/rust.vim'
+
+call plug#end()
 
 " fzf
 " ---
@@ -102,11 +134,30 @@ let g:fzf_colors =
 let g:fzf_layout = { 'down': '~20%' }
 
 " find file
-nnoremap <silent> <leader>ff :<C-u>Files<CR>
+nnoremap <silent> <leader>ff :Files<CR>
 " find buffer
-nnoremap <silent> <leader>fb :<C-u>Buffers<CR>
+nnoremap <silent> <leader>fb :Buffers<CR>
 " find line
-nnoremap <silent> <leader>fl :<C-u>BLines<CR>
+nnoremap <silent> <leader>fl :BLines<CR>
+
+
+" ALE Linter
+" ==========
+let g:ale_sign_column_always = 1
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_enter = 0
+let g:ale_lint_on_save = 0
+let g:ale_rust_cargo_use_check = 1
+let g:ale_rust_cargo_check_all_targets = 1
+
+" Language Server Protocol
+" ========================
+let g:LanguageClient_settingsPath = "$HOME/dotfiles/vim/languageclient.json"
+let g:LanguageClient_serverCommands = {
+    \ 'rust': ['$HOME/.cargo/bin/rustup', 'run', 'stable', 'rls'],
+    \ }
+let g:LanguageClient_autoStart = 1
+
 
 " airline
 " -------
@@ -140,6 +191,9 @@ cabbrev X x
 " same goes for :W
 cabbrev W w
 
+" quick save
+nmap <leader>w :w<CR>
+
 " allow backspace across end of lines, and across the start of an insert.
 set backspace=indent,eol,start
 
@@ -147,14 +201,21 @@ set backspace=indent,eol,start
 set incsearch
 
 " search for current selection with / or ?
-vnoremap <silent> / :<C-u>call VisualSelection('', '')<CR>/<C-R>=@/<CR><CR>
-vnoremap <silent> ? :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
+vnoremap <silent> * :<C-u>call VisualSelection('', '')<CR>/<C-R>=@/<CR><CR>
+vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
 
 nnoremap <silent> <esc><esc> :<C-u>call ClearSearch()<CR>
 
 " navigate a search centered vertically
 nnoremap <silent> N Nzz
 nnoremap <silent> n nzz
+nnoremap <silent> * *zz
+nnoremap <silent> # #zz
+
+map H ^
+map L $
+
+nnoremap <leader><leader> <C-^>
 
 " Editing
 " -------
@@ -168,6 +229,14 @@ set ruler
 set number
 set relativenumber
 set wildmenu
+
+" search
+set incsearch
+set ignorecase
+set smartcase
+
+" use g by default, such as in find/replace
+set gdefault
 
 set showcmd
 
