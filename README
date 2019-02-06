@@ -1,9 +1,44 @@
-Dotfiles
-========
-By Steffen Haug
+dotfiles by steffen haug.
 
-This repository contains configuration files for tools that support
-configuration in plain text, such as vim and zsh. It also contains
-other tools and configurations that i want to synchornize actoss my
-different systems, such as LaTeX tools (templates, bibliographies)
-and scripts.
+how to bootstrap desktop environment:
+
+- Install the Mate Desktop Environment as usual
+    - Set up a GTK theme so all applications
+      that use GTK look uniform
+    - Configure your bar setup, and
+      remember how wide they are
+- Install your favorite terminal (i like Alacritty)
+- Install your favorite text editor (i like VIM)
+    - For my setup, you need to install junegunn/vim-plug
+      manually to bootstrap
+    - After that, just symlink the rc-file and run :PlugInstall
+
+- Configure Alacritty
+    - Change colorscheme to match vim
+    - Change font to your favorite font
+    - Install xclip if you wan to enable
+      pasting from clipboard
+    - Increase the line-spacing slightly if you want to
+
+You need your terminal and text editor from here on,
+so configure it now. For my setup:
+
+- Install your favorite shell (i like ZSH)
+    - Symlink env.zsh to $HOME/.zshenv
+    - Symlink rc.zsh to $ZDOTDIR/.zshrc
+
+- Install tmux
+    - Just symlink the config file to $HOME/.tmux.conf
+    (i don't think tmux actually respects XDG-config, unfortunately)
+
+
+
+- Install bspwm and sxhkd
+- Install a program launcher (like Rofi or dmenu)
+
+- Set up Mate the way you want it
+- Disable ALL Mate hotkeys
+    - Control Center > Keyboard Shortcuts
+    - Backspace to disable hotkey
+- Configure sxhkd and bspwm
+    - Symlink from dotfiles repo to $XDG_CONFIG_HOME

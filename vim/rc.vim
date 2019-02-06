@@ -1,5 +1,6 @@
-" VIM configuration, by Steffen Haug
-" ==================================
+" NVIM configuration, by Steffen Haug
+" ===================================
+" This assumes you use neovim.
 "
 " Designed for general use (programming, as well as typing) on
 " 60% keyboards, such as the Pok3r, as well as macbook keyboards.
@@ -58,13 +59,10 @@ if has('python3')
 endif
 
 " permanent undo
-if !isdirectory($HOME."/.vim")
-    call mkdir($HOME."/.vim", "", 0770)
+if !isdirectory($HOME."/.local/share/nvim/vimdid")
+    call mkdir($HOME."/.local/share/nvim/vimdid", "", 0700)
 endif
-if !isdirectory($HOME."/.vim/vimdid")
-    call mkdir($HOME."/.vim/vimdid", "", 0700)
-endif
-set undodir=~/.vim/vimdid
+set undodir=$HOME/.local/share/nvim/vimdid
 set undofile
 
 
@@ -83,7 +81,7 @@ inoremap <MiddleMouse> <Nop>
 
 " Plugins
 " =======
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'airblade/vim-rooter'
 Plug 'justinmk/vim-sneak'
