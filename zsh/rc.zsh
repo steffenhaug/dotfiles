@@ -13,7 +13,7 @@ export PATH="$HOME/.cargo/bin:$PATH"
 # Set prompt. git-prompt-info is a custom function.
 # We need prompt_subst to evaluate $()-s in the prompt.
 setopt prompt_subst
-export PROMPT='%~$(git-prompt-info)$ '
+export PROMPT='%~$(git-prompt-info) :: '
 
 
 # Move the completion cache out of $HOME
