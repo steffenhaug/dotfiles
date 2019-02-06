@@ -44,3 +44,11 @@ git-prompt-info() {
 
   echo " %F{green}($(current-git-branch)%f $(git-dirty)%F{green})%f"
 }
+
+# auto-start tmux when we are
+#  1. not in a login shell (because zshrc was loaded)
+#  2. not already in tmux
+#  3. not inside vim
+# there are probably more situations we don't want to
+# auto-start tmux, but at least these two.
+if [ -z $TMUX ] && [ -z $VIM ]; then; exec tmux; fi
