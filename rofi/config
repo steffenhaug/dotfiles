@@ -1,0 +1,9 @@
+rofi.font:              Ubuntu Mono 12
+rofi.theme:             gruvbox-dark-hard
+rofi.separator-style:   none
+rofi.location:          0
+rofi.width:             20
+rofi.hide-scrollbar:    true
+rofi.display-run:       run::
+rofi.display-window:    window::
+rofi.display-ssh:       ssh::

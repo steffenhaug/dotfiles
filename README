@@ -7,8 +7,10 @@ how to bootstrap desktop environment:
       that use GTK look uniform
     - Configure your bar setup, and
       remember how wide they are
+
 - Install your favorite terminal (i like Alacritty)
-- Install your favorite text editor (i like VIM)
+
+- Install vim (or another text-editor)
     - For my setup, you need to install junegunn/vim-plug
       manually to bootstrap
     - After that, just symlink the rc-file and run :PlugInstall
@@ -23,20 +25,22 @@ how to bootstrap desktop environment:
 You need your terminal and text editor from here on,
 so configure it now. For my setup:
 
-- Install your favorite shell (i like ZSH)
-    - Symlink env.zsh to $HOME/.zshenv
-    - Symlink rc.zsh to $ZDOTDIR/.zshrc
-
 - Install tmux
     - Just symlink the config file to $HOME/.tmux.conf
-    (i don't think tmux actually respects XDG-config, unfortunately)
+    (i don't think tmux actually can respect XDG-config, unfortunately)
 
+- Install your favorite shell (i like ZSH)
+    - Symlink env.zsh to $HOME/.zshenv
+    (all this does is set ZDOTDIR so we don't pollute $HOME)
+    - Symlink rc.zsh to $ZDOTDIR/.zshrc
 
+My zsh-config is very simple. Basically, it only changes your
+path to add things like Cargo, add Git-status to your prompt,
+and auto-start tmux so you can have tabs.
 
 - Install bspwm and sxhkd
 - Install a program launcher (like Rofi or dmenu)
 
-- Set up Mate the way you want it
 - Disable ALL Mate hotkeys
     - Control Center > Keyboard Shortcuts
     - Backspace to disable hotkey
