@@ -1,0 +1,64 @@
+###########################
+# wm independent hotkeys
+###########################
+
+# rofi program launcher
+alt + space
+    rofi -show run
+
+# rofi program launcher
+alt + Tab
+    rofi -show window
+
+# thunar
+alt + f
+    thunar
+
+alt + r
+    java -jar $HOME/RuneLite.jar --mode=OFF
+
+# firefox
+alt + i
+    firefox
+
+###########################
+# bspwm hotkeys
+###########################
+
+super + {1,2,3,4}
+    bspc desktop -f {1,2,3,4}
+
+# make sxhkd reload its configuration files
+alt + Escape
+    pkill -USR1 -x sxhkd
+
+# reload bspwmrc configuration file
+alt + b
+    /home/xfcebspwm/.config/bspwm/bspwmrc
+
+# close window
+alt + q
+    bspc node -c
+
+# alternate between the tiled and monocle layout
+alt + m
+    bspc desktop -l next
+
+# set the window state
+{F9,F10,F11,F12}
+    bspc node -t {floating,tiled,pseudo_tiled,fullscreen}
+
+# === focus/swap ===
+
+# focus the next/previous node
+alt + {_,shift + }{h,j,k,l}
+    bspc node -{f,s} {west,south,north,east}
+
+alt + ctrl + {h,j,k,l}
+    bspc node -p {west,south,north,east}
+
+alt + ctrl + {1-9}
+    bspc node -o 0.{1-9}
+
+alt + ctrl + space
+    bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel

@@ -1,0 +1,25 @@
+#! /bin/sh
+
+sxhkd &
+
+bspc config click_to_focus true
+
+# workspaces
+bspc monitor DVI-I-1 -d 1 2
+bspc monitor HDMI-0  -d 3 4
+
+# "full screen" monocle
+bspc config borderless_monocle  true
+bspc config gapless_monocle     true
+
+# auto-monocle when only one window in ws.
+bspc config single_monocle 	true
+
+# sizes
+bspc config -m HDMI-0  top_padding 22
+bspc config -m DVI-I-1 top_padding 0
+bspc config border_width 3
+bspc config window_gap 3
+
+bspc rule -a RuneLite state=floating
+bspc rule -a Solaar state=floating

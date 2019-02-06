@@ -87,6 +87,9 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'airblade/vim-rooter'
 Plug 'justinmk/vim-sneak'
+
+" Use ag by default because it respects gitignore files.
+let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
@@ -110,10 +113,12 @@ Plug 'autozimu/LanguageClient-neovim', {
 
 Plug 'rust-lang/rust.vim'
 
+Plug 'lervag/vimtex'
+
 call plug#end()
 
-" fzf
-" ---
+" fzf search
+" ==========
 set rtp+=$HOME/.fzf
 
 let g:fzf_colors =
@@ -150,14 +155,21 @@ let g:ale_lint_on_save = 0
 let g:ale_rust_cargo_use_check = 1
 let g:ale_rust_cargo_check_all_targets = 1
 
-" Language Server Protocol
-" ========================
+" Language Server Protocol / Client
+" =================================
 let g:LanguageClient_settingsPath = "$HOME/dotfiles/vim/languageclient.json"
+let g:LanguageClient_diagnosticsEnable = 0
 let g:LanguageClient_serverCommands = {
-    \ 'rust': ['$HOME/.cargo/bin/rustup', 'run', 'stable', 'rls'],
+    \ 'rust': ['rustup', 'run', 'stable', 'rls'],
     \ }
 let g:LanguageClient_autoStart = 1
 
+nnoremap <leader>lsc :call LanguageClient_contextMenu()<CR>
+nnoremap <leader>gd  :call LanguageClient#textDocument_definition()<CR>
+nnoremap <leader>ty  :call LanguageClient#textDocument_hover()<CR>
+
+" vimtex
+" ======
 
 " airline
 " -------
