@@ -2,7 +2,7 @@ dotfiles by steffen haug.
 
 how to bootstrap desktop environment:
 
-- Install the Mate Desktop Environment as usual
+- Install the XFCE Desktop Environment as usual
     - Set up a GTK theme so all applications
       that use GTK look uniform
     - Configure your bar setup, and
@@ -41,8 +41,9 @@ and auto-start tmux so you can have tabs.
 - Install bspwm and sxhkd
 - Install a program launcher (like Rofi or dmenu)
 
-- Disable ALL Mate hotkeys
-    - Control Center > Keyboard Shortcuts
-    - Backspace to disable hotkey
+- Disable *ALL* XFCE hotkeys
 - Configure sxhkd and bspwm
     - Symlink from dotfiles repo to $XDG_CONFIG_HOME
+    (Note that XDG_CONFIG_HOME actually needs to be defined
+     for bspwm to find its config)
+
