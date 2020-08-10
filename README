@@ -20,7 +20,7 @@ how to bootstrap desktop environment:
     - Change font to your favorite font
     - Install xclip if you wan to enable
       pasting from clipboard
-    - Increase the line-spacing slightly if you want to
+    - I like to increase the line spacing in alacritty
 
 You need your terminal and text editor from here on,
 so configure it now. For my setup:
@@ -46,4 +46,5 @@ and auto-start tmux so you can have tabs.
     - Symlink from dotfiles repo to $XDG_CONFIG_HOME
     (Note that XDG_CONFIG_HOME actually needs to be defined
      for bspwm to find its config)
+- Remove xfwm from the xfce startup programs, and simply start bspwm instead
 
